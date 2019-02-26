@@ -112,7 +112,7 @@ def create(a10_obj, **kwargs):
     post_result = {}
     try:
         payload = _build_json(obj_type, avail_props, **kwargs)
-        client = _get_client(**kwargs)
+        client = _get_client()
         post_result['post_resp'] = client.post(url, payload)
         post_result['result'] = True
     except a10_ex.Exists:
@@ -143,7 +143,7 @@ def update(a10_obj, **kwargs):
     post_result = {}
     try:
         payload = _build_json(obj_type, avail_props, **kwargs)
-        client = _get_client(**kwargs)
+        client = _get_client()
         post_result = client.put(url, payload)
     except a10_ex.NotFound:
         post_result['result'] = False
@@ -170,7 +170,7 @@ def delete(a10_obj, **kwargs):
     url = a10_helper.get_url(a10_obj, 'delete', **kwargs)
     post_result = {}
     try:
-        client = _get_client(**kwargs)
+        client = _get_client()
         client.delete(url)
     except a10_ex.NotFound:
         post_result['result'] = False
