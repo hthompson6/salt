@@ -57,7 +57,6 @@ def create(a10_obj, **kwargs):
         salt '*' a10.create slb_virtual_server name='vs1' ip_address='192.168.42.1'
     '''
 
-
     client = _get_client()
     post_result = a10_salt.parse_obj(a10_obj, 'slb', client, **kwargs)
     LOG.debug("==================OUTPUT HERE===================")
