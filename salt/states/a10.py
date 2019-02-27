@@ -39,8 +39,7 @@ def create(**kwargs):
     .. code-block:: bash
         salt '*' a10.delete slb_virtual_server name='vs1'
     '''
-    a10_obj = kwargs['a10_obj']
-    del kwargs['a10_obj']
+    a10_obj = kwargs['name']
     post_result = __salt__['a10.create'](a10_obj, **kwargs)
     return _ret_ops(a10_obj, post_result)
 
@@ -57,8 +56,7 @@ def update(**kwargs):
     .. code-block:: bash
         salt '*' a10.delete slb_virtual_server name='vs1'
     '''
-    a10_obj = kwargs['a10_obj']
-    del kwargs['a10_obj']
+    a10_obj = kwargs['name']
     post_result = __salt__['a10.update'](a10_obj, **kwargs)
     return _ret_ops(a10_obj, post_result)
 
@@ -75,7 +73,6 @@ def delete(**kwargs):
     .. code-block:: bash
         salt '*' a10.delete slb_virtual_server name='vs1'
     '''
-    a10_obj = kwargs['a10_obj']
-    del kwargs['a10_obj']
+    a10_obj = kwargs['name']
     post_result = __salt__['a10.delete'](a10_obj, **kwargs)
     return _ret_ops(a10_obj, post_result)
