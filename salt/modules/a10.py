@@ -112,6 +112,9 @@ def create(a10_obj, **kwargs):
     post_result = {}
     try:
         payload = _build_json(obj_type, avail_props, **kwargs)
+        if payload[obj_type].get('a10-name'):
+            payload[obj_type]["name"] = payload[obj_type]["a10-name"]
+            del payload[obj_type]["a10-name"]
         client = _get_client()
         post_result['post_resp'] = client.post(url, payload)
         post_result['result'] = True
@@ -143,6 +146,9 @@ def update(a10_obj, **kwargs):
     post_result = {}
     try:
         payload = _build_json(obj_type, avail_props, **kwargs)
+        if payload[obj_type].get('a10-name'):
+            payload[obj_type]["name"] = payload[obj_type]["a10-name"]
+            del payload[obj_type]["a10-name"]
         client = _get_client()
         post_result = client.put(url, payload)
     except a10_ex.NotFound:
