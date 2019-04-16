@@ -59,8 +59,6 @@ def create(a10_obj, **kwargs):
 
     client = _get_client()
     post_result = a10_salt.parse_obj(a10_obj, 'slb', client, **kwargs)
-    LOG.debug("==================OUTPUT HERE===================")
-    LOG.debug(post_result)
     return post_result
 
 def update(a10_obj, **kwargs):
