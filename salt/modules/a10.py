@@ -44,7 +44,7 @@ def _get_client():
     return a10_client.A10Client(__proxy__['a10.get_session']())
 
 
-def _apply_config(op_type, **kwargs)
+def _apply_config(op_type, **kwargs):
     a10_obj = kwargs['a10_obj']
     del kwargs['a10_obj']
     client = _get_client()
@@ -55,9 +55,9 @@ def _apply_config(op_type, **kwargs)
        post_result['result'] = True
     except a10_ex.ACOSException as ex:
        post_result['result'] = False
-        post_result['comment'] = ex.msg
+       post_result['comment'] = ex.msg
     except Exception as gex:
-        raise gex
+       raise gex
     return post_result
 
 
