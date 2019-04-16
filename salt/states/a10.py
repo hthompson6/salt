@@ -29,7 +29,6 @@ def _ret_ops(name, post_result):
     return ret
 
 
-<<<<<<< HEAD
 def aam(name, **kwargs):
     post_result = __salt__['a10.aam'](**kwargs)
     return _ret_ops(name, post_result)
@@ -523,6 +522,7 @@ def web_service(name, **kwargs):
 def zone(name, **kwargs):
     post_result = __salt__['a10.zone'](**kwargs)
     return _ret_ops(name, post_result)
+<<<<<<< HEAD
 =======
 def create(**kwargs):
     '''
@@ -574,3 +574,5 @@ def delete(**kwargs):
     post_result = __salt__['a10.delete'](a10_obj, **kwargs)
     return _ret_ops(a10_obj, post_result)
 >>>>>>> 6fb8724... Added logic to utilize name param for module lookup
+=======
+>>>>>>> 9f3c2c3... Removed merge conflict

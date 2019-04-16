@@ -58,6 +58,7 @@ def create(a10_obj, **kwargs):
     '''
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     url = a10_helper.get_url(a10_obj, 'create', **kwargs)
     avail_props = a10_helper.get_props(a10_obj, **kwargs)
@@ -80,10 +81,10 @@ def create(a10_obj, **kwargs):
     return post_result
 >>>>>>> 481f135... Removed args being passed to client
 
+=======
+>>>>>>> 9f3c2c3... Removed merge conflict
     client = _get_client()
     post_result = a10_salt.parse_obj(a10_obj, 'slb', client, **kwargs)
-    LOG.debug("==================OUTPUT HERE===================")
-    LOG.debug(post_result)
     return post_result
 
 def update(a10_obj, **kwargs):
