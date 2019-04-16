@@ -46,6 +46,7 @@ def _get_client():
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def create(a10_obj, **kwargs):
     '''
     This function creates an ACOS object based upon the
@@ -91,6 +92,9 @@ def aam(**kwargs):
 =======
 def _apply_config(op_type, **kwargs)
 >>>>>>> fa3f9b7... Added salt module functions per api endpoint. Fixed syntax errors
+=======
+def _apply_config(op_type, **kwargs):
+>>>>>>> e125d93... Fixed syntax error
     a10_obj = kwargs['a10_obj']
     del kwargs['a10_obj']
 >>>>>>> 631a9e5... Added first endpoint
@@ -126,9 +130,9 @@ def _apply_config(op_type, **kwargs)
 >>>>>>> fa3f9b7... Added salt module functions per api endpoint. Fixed syntax errors
     except a10_ex.ACOSException as ex:
        post_result['result'] = False
-        post_result['comment'] = ex.msg
+       post_result['comment'] = ex.msg
     except Exception as gex:
-        raise gex
+       raise gex
     return post_result
 
 
