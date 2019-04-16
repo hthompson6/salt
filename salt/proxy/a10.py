@@ -30,8 +30,8 @@ import logging
 
 # Import A10 Modules
 try:
-    from a10_saltstack import axapi_http
-    from a10_saltstack import session
+    from a10_saltstack.client import axapi_http
+    from a10_saltstack.client import session
     HAS_A10 = True
 except ImportError:
     HAS_A10 = False
