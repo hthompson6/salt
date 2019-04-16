@@ -44,8 +44,7 @@ def _get_client():
     return a10_client.A10Client(__proxy__['a10.get_session']())
 
 
-def aam(**kwargs):
-    op_type = 'aam'
+def _apply_config(op_type, **kwargs)
     a10_obj = kwargs['a10_obj']
     del kwargs['a10_obj']
     client = _get_client()
@@ -53,7 +52,7 @@ def aam(**kwargs):
     post_result = {}
     try:
        post_result['post_resp'] = a10_salt.parse_obj(a10_obj, op_type, client, **kwargs)
-       post_result['result'] = True 
+       post_result['result'] = True
     except a10_ex.ACOSException as ex:
        post_result['result'] = False
         post_result['comment'] = ex.msg
@@ -61,491 +60,497 @@ def aam(**kwargs):
         raise gex
     return post_result
 
-def access_list(name, **kwargs):
-    post_result = __salt__['a10.access_list'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def aam(**kwargs):
+    op_type = 'aam'
+    return _apply_config(op_type, **kwargs) 
 
-def accounting(name, **kwargs):
-    post_result = __salt__['a10.accounting'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def access_list(**kwargs):
+    op_type = 'access_list'
+    return _apply_config(op_type, **kwargs)
 
-def active_partition(name, **kwargs):
-    post_result = __salt__['a10.active_partition'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def accounting(**kwargs):
+    op_type = 'accounting'
+    return _apply_config(op_type, **kwargs)
 
-def admin(name, **kwargs):
-    post_result = __salt__['a10.admin'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def active_partition(**kwargs):
+    op_type = 'active_partition'
+    return _apply_config(op_type, **kwargs)
 
-def admin_lockout(name, **kwargs):
-    post_result = __salt__['a10.admin_lockout'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def admin(**kwargs):
+    op_type = 'admin'
+    return _apply_config(op_type, **kwargs)
 
-def application_type(name, **kwargs):
-    post_result = __salt__['a10.application_type'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def admin_lockout(**kwargs):
+    op_type = 'admin_lockout'
+    return _apply_config(op_type, **kwargs)
 
-def audit(name, **kwargs):
-    post_result = __salt__['a10.audit'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def application_type(**kwargs):
+    op_type = 'application_type'
+    return _apply_config(op_type, **kwargs)
 
-def authentication(name, **kwargs):
-    post_result = __salt__['a10.authentication'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def audit(**kwargs):
+    op_type = 'audit'
+    return _apply_config(op_type, **kwargs)
 
-def authorization(name, **kwargs):
-    post_result = __salt__['a10.authorization'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def authentication(**kwargs):
+    op_type = 'authentication'
+    return _apply_config(op_type, **kwargs)
 
-def backup_periodic(name, **kwargs):
-    post_result = __salt__['a10.backup_periodic'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def authorization(**kwargs):
+    op_type = 'authorization'
+    return _apply_config(op_type, **kwargs)
 
-def banner(name, **kwargs):
-    post_result = __salt__['a10.banner'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def backup_periodic(**kwargs):
+    op_type = 'backup_periodic'
+    return _apply_config(op_type, **kwargs) 
 
-def bgp(name, **kwargs):
-    post_result = __salt__['a10.bgp'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def banner(**kwargs):
+    op_type = 'banner'
+    return _apply_config(op_type, **kwargs)
 
-def bios_prog(name, **kwargs):
-    post_result = __salt__['a10.bios_prog'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def bgp(**kwargs):
+    op_type = 'bgp'
+    return _apply_config(op_type, **kwargs)
 
-def cgnv6(name, **kwargs):
-    post_result = __salt__['a10.cgnv6'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def bios_prog(**kwargs):
+    op_type = 'bios_prog'
+    return _apply_config(op_type, **kwargs)
 
-def class_lsit(name, **kwargs):
-    post_result = __salt__['a10.class_list'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def cgnv6(**kwargs):
+    op_type = 'cgnv6'
+    return _apply_config(op_type, **kwargs)
 
-def cloud_services(name, **kwargs):
-    post_result = __salt__['a10.cloud_services'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def class_list(**kwargs):
+    op_type = 'class_list'
+    return _apply_config(op_type, **kwargs)
 
-def coutner(name, **kwargs):
-    post_result = __salt__['a10.counter'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def cloud_services(**kwargs):
+    op_type = 'cloud_services'
+    return _apply_config(op_type, **kwargs)
 
-def delete(name, **kwargs):
-    post_result = __salt__['a10.delete'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def counter(**kwargs):
+    op_type = 'counter'
+    return _apply_config(op_type, **kwargs)
 
-def disable_management(name, **kwargs):
-    post_result = __salt__['a10.disable_managment'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def delete(**kwargs):
+    op_type = 'delete'
+    return _apply_config(op_type, **kwargs)
 
-def dnssec(name, **kwargs):
-    post_result = __salt__['a10.dnssec'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def disable_management(**kwargs):
+    op_type = 'disable_management'
+    return _apply_config(op_type, **kwargs)
 
-def enable_core(name, **kwargs):
-    post_result = __salt__['a10.enable_core'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def dnssec(**kwargs):
+    op_type = 'dnssec'
+    return _apply_config(op_type, **kwargs)
 
-def enable_management(name, **kwargs):
-    post_result = __salt__['a10.enable_management'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def enable_core(**kwargs):
+    op_type = 'enable_core'
+    return _apply_config(op_type, **kwargs)
 
-def enviroment(name, **kwargs):
-    post_result = __salt__['a10.enviroment'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def enable_management(**kwargs):
+    op_type = 'enable_management'
+    return _apply_config(op_type, **kwargs)
 
-def event(name, **kwargs):
-    post_result = __salt__['a10.event'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def enviroment(**kwargs):
+    op_type = 'enviroment'
+    return _apply_config(op_type, **kwargs)
 
-def export_periodic(name, **kwargs):
-    post_result = __salt__['a10.export_periodic'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def event(**kwargs):
+    op_type = 'event'
+    return _apply_config(op_type, **kwargs)
 
-def fail_safe(name, **kwargs):
-    post_result = __salt__['a10.fail_safe'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def export_periodic(**kwargs):
+    op_type = 'export_periodic'
+    return _apply_config(op_type, **kwargs)
 
-def fan_speed(name, **kwargs):
-    post_result = __salt__['a10.fan_speed'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def fail_safe(**kwargs):
+    op_type = 'fail_safe'
+    return _apply_config(op_type, **kwargs)
 
-def fw(name, **kwargs):
-    post_result = __salt__['a10.fw'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def fan_speed(**kwargs):
+    op_type = 'fan_speed'
+    return _apply_config(op_type, **kwargs)
 
-def glid(name, **kwargs):
-    post_result = __salt__['a10.glid'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def fw(**kwargs):
+    op_type = 'fw'
+    return _apply_config(op_type, **kwargs)
 
-def glm(name, **kwargs):
-    post_result = __salt__['a10.glm'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def glid(**kwargs):
+    op_type = 'glid'
+    return _apply_config(op_type, **kwargs)
 
-def gslb(name, **kwargs):
-    post_result = __salt__['a10.gslb'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def glm(**kwargs):
+    op_type = 'glm'
+    return _apply_config(op_type, **kwargs)
 
-def hd_monitor(name, **kwargs):
-    post_result = __salt__['a10.hd_monitor'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def gslb(**kwargs):
+    op_type = 'gslb'
+    return _apply_config(op_type, **kwargs)
 
-def health(name, **kwargs):
-    post_result = __salt__['a10.health'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def hd_monitor(**kwargs):
+    op_type = 'hd_monitor'
+    return _apply_config(op_type, **kwargs)
 
-def hostname(name, **kwargs):
-    post_result = __salt__['a10.hostname'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def health(**kwargs):
+    op_type = 'health'
+    return _apply_config(op_type, **kwargs)
 
-def hsm(name, **kwargs):
-    post_result = __salt__['a10.hsm'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def hostname(**kwargs):
+    op_type = 'hostname'
+    return _apply_config(op_type, **kwargs)
 
-def import_periodic(name, **kwargs):
-    post_result = __salt__['a10.import_periodic'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def hsm(**kwargs):
+    op_type = 'hsm'
+    return _apply_config(op_type, **kwargs)
 
-def interface(name, **kwargs):
-    post_result = __salt__['a10.interface'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def import_periodic(**kwargs):
+    op_type = 'import_periodic'
+    return _apply_config(op_type, **kwargs)
 
-def ip(name, **kwargs):
-    post_result = __salt__['a10.ip'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def interface(**kwargs):
+    op_type = 'interface'
+    return _apply_config(op_type, **kwargs)
 
-def ip_list(name, **kwargs):
-    post_result = __salt__['a10.ip_list'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ip(**kwargs):
+    op_type = 'ip'
+    return _apply_config(op_type, **kwargs)
 
-def ipv4_in_ipv6(name, **kwargs):
-    post_result = __salt__['a10.ipv4_in_ipv6'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ip_list(**kwargs):
+    op_type = 'ip_list'
+    return _apply_config(op_type, **kwargs)
 
-def ipv6(name, **kwargs):
-    post_result = __salt__['a10.ipv6'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ipv4_in_ipv6(**kwargs):
+    op_type = 'ipv4_in_ipv6'
+    return _apply_config(op_type, **kwargs)
 
-def ipv6_in_ipv4(name, **kwargs):
-    post_result = __salt__['a10.ipv6_in_ipv4'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ipv6(**kwargs):
+    op_type = 'ipv6'
+    return _apply_config(op_type, **kwargs)
 
-def key(name, **kwargs):
-    post_result = __salt__['a10.key'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ipv6_in_ipv4(**kwargs):
+    op_type = 'ipv6_in_ipv4'
+    return _apply_config(op_type, **kwargs)
 
-def ldap_server(name, **kwargs):
-    post_result = __salt__['a10.ldap_server'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def key(**kwargs):
+    op_type = 'key'
+    return _apply_config(op_type, **kwargs)
 
-def license_manager(name, **kwargs):
-    post_result = __salt__['a10.license_manager'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ldap_server(**kwargs):
+    op_type = 'ldap_server'
+    return _apply_config(op_type, **kwargs)
 
-def locale(name, **kwargs):
-    post_result = __salt__['a10.locale'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def license_manager(**kwargs):
+    op_type = 'license_manager'
+    return _apply_config(op_type, **kwargs)
 
-def logging(name, **kwargs):
-    post_result = __salt__['a10.logging'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def locale(**kwargs):
+    op_type = 'locale'
+    return _apply_config(op_type, **kwargs)
 
-def maximum_paths(name, **kwargs):
-    post_result = __salt__['a10.maximum_paths'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def logging(**kwargs):
+    op_type = 'logging'
+    return _apply_config(op_type, **kwargs)
 
-def merge_mode_add(name, **kwargs):
-    post_result = __salt__['a10.merge_mode_add'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def maximum_paths(**kwargs):
+    op_type = 'maximum_paths'
+    return _apply_config(op_type, **kwargs)
 
-def mirror_port(name, **kwargs):
-    post_result = __salt__['a10.mirror_port'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def merge_mode_add(**kwargs):
+    op_type = 'merge_mode_add'
+    return _apply_config(op_type, **kwargs)
 
-def monitor(name, **kwargs):
-    post_result = __salt__['a10.monitor'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def mirror_port(**kwargs):
+    op_type = 'mirror_port'
+    return _apply_config(op_type, **kwargs)
 
-def multi_config(name, **kwargs):
-    post_result = __salt__['a10.multi_config'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def monitor(**kwargs):
+    op_type = 'monitor'
+    return _apply_config(op_type, **kwargs)
 
-def netflow(name, **kwargs):
-    post_result = __salt__['a10.netflow'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def multi_config(**kwargs):
+    op_type = 'multi_config'
+    return _apply_config(op_type, **kwargs)
 
-def network(name, **kwargs):
-    post_result = __salt__['a10.network'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def netflow(**kwargs):
+    op_type = 'netflow'
+    return _apply_config(op_type, **kwargs)
 
-def ntp(name, **kwargs):
-    post_result = __salt__['a10.ntp'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def network(**kwargs):
+    op_type = 'network'
+    return _apply_config(op_type, **kwargs)
 
-def object(name, **kwargs):
-    post_result = __salt__['a10.object'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def ntp(**kwargs):
+    op_type = 'ntp'
+    return _apply_config(op_type, **kwargs)
 
-def object_group(name, **kwargs):
-    post_result = __salt__['a10.object_group'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def object(**kwargs):
+    op_type = 'object'
+    return _apply_config(op_type, **kwargs)
 
-def overlay_mgmt_info(name, **kwargs):
-    post_result = __salt__['a10.overlay_mgmt_info'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def object_group(**kwargs):
+    op_type = 'object_group'
+    return _apply_config(op_type, **kwargs)
 
-def overlay_tunnel(name, **kwargs):
-    post_result = __salt__['a10.overlay_tunnel'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def overlay_mgmt_info(**kwargs):
+    op_type = 'overlay_mgmt_info'
+    return _apply_config(op_type, **kwargs)
 
-def partition(name, **kwargs):
-    post_result = __salt__['a10.partition'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def overlay_tunnel(**kwargs):
+    op_type = 'overlay_tunnel'
+    return _apply_config(op_type, **kwargs)
 
-def partition_group(name, **kwargs):
-    post_result = __salt__['a10.partition_group'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def partition(**kwargs):
+    op_type = 'partition'
+    return _apply_config(op_type, **kwargs)
 
-def pki(name, **kwargs):
-    post_result = __salt__['a10.pki'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def partition_group(**kwargs):
+    op_type = 'partition_group'
+    return _apply_config(op_type, **kwargs)
 
-def radius_server(name, **kwargs):
-    post_result = __salt__['a10.radius_server'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def pki(**kwargs):
+    op_type = 'pki'
+    return _apply_config(op_type, **kwargs)
 
-def rate_limit(name, **kwargs):
-    post_result = __salt__['a10.rate_limit'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def radius_server(**kwargs):
+    op_type = 'radius_server'
+    return _apply_config(op_type, **kwargs)
 
-def rba(name, **kwargs):
-    post_result = __salt__['a10.rba'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def rate_limit(**kwargs):
+    op_type = 'rate_limit'
+    return _apply_config(op_type, **kwargs)
 
-def remove_upgrade_lock(name, **kwargs):
-    post_result = __salt__['a10.remove_upgrade_lock'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def rba(**kwargs):
+    op_type = 'rba'
+    return _apply_config(op_type, **kwargs)
 
-def report(name, **kwargs):
-    post_result = __salt__['a10.report'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def remove_upgrade_lock(**kwargs):
+    op_type = 'remove_upgrade_lock'
+    return _apply_config(op_type, **kwargs)
 
-def route_map(name, **kwargs):
-    post_result = __salt__['a10.route_map'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def report(**kwargs):
+    op_type = 'report'
+    return _apply_config(op_type, **kwargs)
 
-def router(name, **kwargs):
-    post_result = __salt__['a10.router'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def route_map(**kwargs):
+    op_type = 'route_map'
+    return _apply_config(op_type, **kwargs)
 
-def rule_set(name, **kwargs):
-    post_result = __salt__['a10.rule_set'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def router(**kwargs):
+    op_type = 'router'
+    return _apply_config(op_type, **kwargs)
 
-def running_config(name, **kwargs):
-    post_result = __salt__['a10.running_config'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def rule_set(**kwargs):
+    op_type = 'rule_set'
+    return _apply_config(op_type, **kwargs)
 
-def scaleout(name, **kwargs):
-    post_result = __salt__['a10.scaleout'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def running_config(**kwargs):
+    op_type = 'running_config'
+    return _apply_config(op_type, **kwargs)
 
-def session_filter(name, **kwargs):
-    post_result = __salt__['a10.session_filter'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def scaleout(**kwargs):
+    op_type = 'scaleout'
+    return _apply_config(op_type, **kwargs)
 
-def sflow(name, **kwargs):
-    post_result = __salt__['a10.sflow'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def session_filter(**kwargs):
+    op_type = 'session_filter'
+    return _apply_config(op_type, **kwargs)
 
-def slb(name, **kwargs):
-    post_result = __salt__['a10.slb'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def sflow(**kwargs):
+    op_type = 'sflow'
+    return _apply_config(op_type, **kwargs)
 
-def smtp(name, **kwargs):
-    post_result = __salt__['a10.smtp'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def slb(**kwargs):
+    op_type = 'slb'
+    return _apply_config(op_type, **kwargs)
 
-def snmp_server(name, **kwargs):
-    post_result = __salt__['a10.snmp_sever'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def smtp(**kwargs):
+    op_type = 'smtp'
+    return _apply_config(op_type, **kwargs)
 
-def so_counters(name, **kwargs):
-    post_result = __salt__['a10.so_counters'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def snmp_server(**kwargs):
+    op_type = 'snmp_server'
+    return _apply_config(op_type, **kwargs)
 
-def syn_cookie(name, **kwargs):
-    post_result = __salt__['a10.syn_cookie'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def so_counters(**kwargs):
+    op_type = 'so_counters'
+    return _apply_config(op_type, **kwargs)
 
-def system(name, **kwargs):
-    post_result = __salt__['a10.system'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def syn_cookie(**kwargs):
+    op_type = 'syn_cookie'
+    return _apply_config(op_type, **kwargs)
 
-def system_4x10g_mode(name, **kwargs):
-    post_result = __salt__['a10.system_4x10g_mode'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def system(**kwargs):
+    op_type = 'system'
+    return _apply_config(op_type, **kwargs)
 
-def system_buff_debug(name, **kwargs):
-    post_result = __salt__['a10.system_buff_debug'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def system_4x10g_mode(**kwargs):
+    op_type = 'system_4x10g_mode'
+    return _apply_config(op_type, **kwargs)
 
-def system_jumbo_global(name, **kwargs):
-    post_result = __salt__['a10.system_jumbo_global'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def system_buff_debug(**kwargs):
+    op_type = 'system_buff_debug'
+    return _apply_config(op_type, **kwargs)
 
-def system_view(name, **kwargs):
-    post_result = __salt__['a10.system_view'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def system_jumbo_global(**kwargs):
+    op_type = 'system_jumbo_global'
+    return _apply_config(op_type, **kwargs)
 
-def tacacs_server(name, **kwargs):
-    post_result = __salt__['a10.tacacs_server'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def system_view(**kwargs):
+    op_type = 'system_view'
+    return _apply_config(op_type, **kwargs)
 
-def techreport(name, **kwargs):
-    post_result = __salt__['a10.techreport'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def tacacs_server(**kwargs):
+    op_type = 'tacacs_server'
+    return _apply_config(op_type, **kwargs)
 
-def techsupport(name, **kwargs):
-    post_result = __salt__['a10.techsupport'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def techreport(**kwargs):
+    op_type = 'techreport'
+    return _apply_config(op_type, **kwargs)
 
-def terminal(name, **kwargs):
-    post_result = __salt__['a10.terminal'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def techsupport(**kwargs):
+    op_type = 'techsupport'
+    return _apply_config(op_type, **kwargs)
 
-def tftp(name, **kwargs):
-    post_result = __salt__['a10.tftp'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def terminal(**kwargs):
+    op_type = 'terminal'
+    return _apply_config(op_type, **kwargs)
 
-def timezone(name, **kwargs):
-    post_result = __salt__['a10.timezone'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def tftp(**kwargs):
+    op_type = 'tftp'
+    return _apply_config(op_type, **kwargs)
 
-def vcs(name, **kwargs):
-    post_result = __salt__['a10.vcs'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def timezone(**kwargs):
+    op_type = 'timezone'
+    return _apply_config(op_type, **kwargs)
 
-def vcs_vblades(name, **kwargs):
-    post_result = __salt__['a10.vcs_vblades'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def vcs(**kwargs):
+    op_type = 'vcs'
+    return _apply_config(op_type, **kwargs)
 
-def vpn(name, **kwargs):
-    post_result = __salt__['a10.vpn'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def vcs_vblades(**kwargs):
+    op_type = 'vcs_vblades'
+    return _apply_config(op_type, **kwargs)
 
-def vrrp_a(name, **kwargs):
-    post_result = __salt__['a10.vrrp_a'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def vpn(**kwargs):
+    op_type = 'vpn'
+    return _apply_config(op_type, **kwargs)
 
-def waf(name, **kwargs):
-    post_result = __salt__['a10.waf'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def vrrp_a(**kwargs):
+    op_type = 'vrrp_a'
+    return _apply_config(op_type, **kwargs)
 
-def web_category(name, **kwargs):
-    post_result = __salt__['a10.web_category'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def waf(**kwargs):
+    op_type = 'waf'
+    return _apply_config(op_type, **kwargs)
 
-def web_service(name, **kwargs):
-    post_result = __salt__['a10.web_service'](**kwargs)
-    return _ret_ops(name, post_result)
 
+def web_category(**kwargs):
+    op_type = 'web_category'
+    return _apply_config(op_type, **kwargs)
 
-def zone(name, **kwargs):
-    post_result = __salt__['a10.zone'](**kwargs)
-    return _ret_ops(name, post_result)
+
+def web_service(**kwargs):
+    op_type = 'web_service'
+    return _apply_config(op_type, **kwargs)
+
+
+def zone(**kwargs):
+    op_type = 'zone'
+    return _apply_config(op_type, **kwargs)
