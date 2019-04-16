@@ -104,7 +104,7 @@ def cgnv6(name, **kwargs):
     return _ret_ops(name, post_result)
 
 
-def class_lsit(name, **kwargs):
+def class_list(name, **kwargs):
     post_result = __salt__['a10.class_list'](**kwargs)
     return _ret_ops(name, post_result)
 
@@ -114,7 +114,7 @@ def cloud_services(name, **kwargs):
     return _ret_ops(name, post_result)
 
 
-def coutner(name, **kwargs):
+def counter(name, **kwargs):
     post_result = __salt__['a10.counter'](**kwargs)
     return _ret_ops(name, post_result)
 
