@@ -57,33 +57,8 @@ def create(a10_obj, **kwargs):
         salt '*' a10.create slb_virtual_server name='vs1' ip_address='192.168.42.1'
     '''
 
-<<<<<<< HEAD
-=======
-    url = a10_helper.get_url(a10_obj, 'create', **kwargs)
-    avail_props = a10_helper.get_props(a10_obj, **kwargs)
-    obj_type = a10_helper.get_obj_type(a10_obj)
-    post_result = {}
-    try:
-        payload = _build_json(obj_type, avail_props, **kwargs)
-        if payload[obj_type].get('a10-name'):
-            payload[obj_type]["name"] = payload[obj_type]["a10-name"]
-            del payload[obj_type]["a10-name"]
-        client = _get_client()
-        post_result['post_resp'] = client.post(url, payload)
-        post_result['result'] = True
-    except a10_ex.Exists:
-        post_result['result'] = False
-    except a10_ex.ACOSException as ex:
-        post_result['comment'] = ex.msg
-    except Exception as gex:
-        raise gex
-    return post_result
->>>>>>> 6fb872478f3a14e6ff950d3f3f11f65aea7d83c4
-
     client = _get_client()
     post_result = a10_salt.parse_obj(a10_obj, 'slb', client, **kwargs)
-    LOG.debug("==================OUTPUT HERE===================")
-    LOG.debug(post_result)
     return post_result
 
 def update(a10_obj, **kwargs):

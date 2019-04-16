@@ -29,7 +29,6 @@ def _ret_ops(name, post_result):
     return ret
 
 
-<<<<<<< HEAD
 def aam(name, **kwargs):
     post_result = __salt__['a10.aam'](**kwargs)
     return _ret_ops(name, post_result)
@@ -523,54 +522,3 @@ def web_service(name, **kwargs):
 def zone(name, **kwargs):
     post_result = __salt__['a10.zone'](**kwargs)
     return _ret_ops(name, post_result)
-=======
-def create(**kwargs):
-    '''
-    This function deletes an ACOS object based upon the
-    passed kwargs.
-
-    a10_obj
-        The type of ACOS object to be created
-
-    CLI Example:
-    .. code-block:: bash
-        salt '*' a10.delete slb_virtual_server name='vs1'
-    '''
-    a10_obj = kwargs['name']
-    post_result = __salt__['a10.create'](a10_obj, **kwargs)
-    return _ret_ops(a10_obj, post_result)
-
-
-def update(**kwargs):
-    '''
-    This function deletes an ACOS object based upon the
-    passed kwargs.
-
-    a10_obj
-        The type of ACOS object to be created
-
-    CLI Example:
-    .. code-block:: bash
-        salt '*' a10.delete slb_virtual_server name='vs1'
-    '''
-    a10_obj = kwargs['name']
-    post_result = __salt__['a10.update'](a10_obj, **kwargs)
-    return _ret_ops(a10_obj, post_result)
-
-
-def delete(**kwargs):
-    '''
-    This function deletes an ACOS object based upon the
-    passed kwargs.
-
-    a10_obj
-        The type of ACOS object to be created
-
-    CLI Example:
-    .. code-block:: bash
-        salt '*' a10.delete slb_virtual_server name='vs1'
-    '''
-    a10_obj = kwargs['name']
-    post_result = __salt__['a10.delete'](a10_obj, **kwargs)
-    return _ret_ops(a10_obj, post_result)
->>>>>>> 6fb872478f3a14e6ff950d3f3f11f65aea7d83c4
