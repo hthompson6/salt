@@ -16,6 +16,7 @@ import logging
 # Import A10 Modules
 try:
     from a10_saltstack.client import client as a10_client
+    from a10_saltstack.client import errors as a10_ex
     from a10_saltstack import a10_saltstack_interface as a10_salt
     HAS_A10 = True
 except ImportError:
