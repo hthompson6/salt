@@ -12,6 +12,7 @@ State module designed for CRUD logic of A10 ACOS objects.
 import logging
 LOG = logging.getLogger(__file__)
 
+
 def _ret_ops(name, post_result):
     ret = dict(
         name=name,
@@ -627,77 +628,116 @@ def scaleout(name, **kwargs):
 
 
 def session_filter(name, **kwargs):
+    '''
+    Configure a convenience filter used to display/clear sessions.
+    '''
     post_result = __salt__['a10.session_filter'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def sflow(name, **kwargs):
+    '''
+    Configure sflow settings used to collect information about ethernet data
+    interfaces and send the data to an external sFlow collector.
+    '''
     post_result = __salt__['a10.sflow'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def slb(name, **kwargs):
+    '''
+    Configure server loadbalancing (SLB) settings. 
+    '''
     post_result = __salt__['a10.slb'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def smtp(name, **kwargs):
+    '''
+    Configure a Simple Mail Transfer Protocol (SMTP) server to use for
+    sending emails from the ACOS device.
+    '''
     post_result = __salt__['a10.smtp'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def snmp_server(name, **kwargs):
+    '''
+    Configure Simple Network Management Protocol (SNMP) engine parameters.
+    '''
     post_result = __salt__['a10.snmp_sever'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def so_counters(name, **kwargs):
+    '''
+    Configure scaleout statistic settings.
+    '''
     post_result = __salt__['a10.so_counters'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def syn_cookie(name, **kwargs):
+    '''
+    Configure hardware-based SYN cookies, which protect against TCP SYN flood attacks. 
+    '''
     post_result = __salt__['a10.syn_cookie'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def system(name, **kwargs):
+    '''
+    Configure system parameters.
+    '''
     post_result = __salt__['a10.system'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def system_4x10g_mode(name, **kwargs):
+    '''
+    Specify 40G port to split into 4x10g ports.
+    '''
     post_result = __salt__['a10.system_4x10g_mode'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def system_buff_debug(name, **kwargs):
+    '''
+    Define the system buff debug configuration.
+    '''
     post_result = __salt__['a10.system_buff_debug'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def system_jumbo_global(name, **kwargs):
+    '''
+    Configure jumbo frame support. 
+    '''
     post_result = __salt__['a10.system_jumbo_global'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def system_view(name, **kwargs):
+    '''
+    Configure system view prameters.
+    '''
     post_result = __salt__['a10.system_view'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def tacacs_server(name, **kwargs):
+    '''
+    Configure two TACACS+ servers for authorization and accounting. 
+    '''
     post_result = __salt__['a10.tacacs_server'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def techreport(name, **kwargs):
+    '''
+    Configure automated collection of system information.
+    '''
     post_result = __salt__['a10.techreport'](**kwargs)
-    return _ret_ops(name, post_result)
-
-
-def techsupport(name, **kwargs):
-    post_result = __salt__['a10.techsupport'](**kwargs)
     return _ret_ops(name, post_result)
 
 
