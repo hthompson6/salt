@@ -497,11 +497,6 @@ def techreport(**kwargs):
     return _apply_config(op_type, **kwargs)
 
 
-def techsupport(**kwargs):
-    op_type = 'techsupport'
-    return _apply_config(op_type, **kwargs)
-
-
 def terminal(**kwargs):
     op_type = 'terminal'
     return _apply_config(op_type, **kwargs)
