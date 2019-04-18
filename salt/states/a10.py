@@ -742,56 +742,89 @@ def techreport(name, **kwargs):
 
 
 def terminal(name, **kwargs):
+    '''
+    Configure terminal startup display parameters.
+    '''
     post_result = __salt__['a10.terminal'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def tftp(name, **kwargs):
+    '''
+    Configure TFTP client.
+    '''
     post_result = __salt__['a10.tftp'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def timezone(name, **kwargs):
+    '''
+    Configure the Time Zone.
+    '''
     post_result = __salt__['a10.timezone'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def vcs(name, **kwargs):
+    '''
+    Configure virtual chassis system.
+    '''
     post_result = __salt__['a10.vcs'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def vcs_vblades(name, **kwargs):
+    '''
+    Configure vcs vblade statistic and counter information.
+    '''
     post_result = __salt__['a10.vcs_vblades'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def vpn(name, **kwargs):
+    '''
+    Configure vpn settings.
+    '''
     post_result = __salt__['a10.vpn'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def vrrp_a(name, **kwargs):
+    '''
+    Configure vrrp-a parameters.
+    '''
     post_result = __salt__['a10.vrrp_a'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def waf(name, **kwargs):
+    '''
+    Configure web application firewall (WAF).
+    '''
     post_result = __salt__['a10.waf'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def web_category(name, **kwargs):
+    '''
+    Configure Web-Category settings.
+    '''
     post_result = __salt__['a10.web_category'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def web_service(name, **kwargs):
+    '''
+    Configure web services.
+    '''
     post_result = __salt__['a10.web_service'](**kwargs)
     return _ret_ops(name, post_result)
 
 
 def zone(name, **kwargs):
+    '''
+    Configure security zone.
+    '''
     post_result = __salt__['a10.zone'](**kwargs)
     return _ret_ops(name, post_result)
 <<<<<<< HEAD
