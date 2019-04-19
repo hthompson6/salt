@@ -6,7 +6,53 @@ A10 State Module
 :maturity:   new
 :depends:    a10_saltstack 
 
-State module designed for CRUD logic of A10 ACOS objects.
+State module designed for interaction with the configuration api's of the A10 AXAPI.
+
+For further API documentation please see: http://techpubs.corp.a10networks.com/
+
+
+Below is an example state to create a slb setup:
+
+.. code-block:: yaml
+  slb_example:
+    a10.slb:
+      - a10_obj: virtual_server
+      - ip_address: 192.168.43.6
+      - netmask: /24
+      - a10_name: vs2
+      - port_list:
+        - 22:
+          - protocol: tcp
+        - 80:
+          - protocol: tcp
+        - service_group:
+          - sg1:
+            - member_list:
+              - mem1:
+                - host: 10.7.11.1
+                - port: 80
+              - mem2:
+                - host: 10.7.11.2
+                - port: 22
+            - lb_type: round_robin
+
+To preform deletions specify `absent`:
+
+.. code-block:: yaml
+  slb_delete_example:
+    a10.slb:
+      - a10_obj: service_group
+      - a10_name: sg1
+      - lb_type: round_robin
+      - member_list:
+        - mem1:
+          - host: 10.7.11.1
+          - port: 80
+          - absent: True
+        - mem2:
+          - host: 10.7.11.2
+          - port: 22
+          - absent: True
 '''
 
 import logging
