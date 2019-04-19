@@ -10,51 +10,68 @@ A10 State Module
 The A10 module has been designed for interaction with the configuration api's
 which reside within the A10 AXAPI.
 
-For further API documentation please see: http://techpubs.corp.a10networks.com/
+For further API documentation please see: http://techpubs.corp.a10networks.com
 
+
+State files are formatted as follows:
+
+.. code-block:: yaml
+  state_file_name:
+    a10.config_api_name:
+      - a10 object:
+        - object_identifier:
+          - <object vals>
+          - a10 object:
+            - object_identifier:
+              - <object vals>
+        - a10 object:
+          - object_identifier:
+            - <object vals>
+
+Refrences objects are child objects of a given object. 
 
 Below is an example state to create a slb setup:
 
 .. code-block:: yaml
   slb_example:
     a10.slb:
-      - a10_obj: virtual_server
-      - ip_address: 192.168.43.6
-      - netmask: /24
-      - a10_name: vs2
-      - port_list:
-        - 22:
-          - protocol: tcp
-        - 80:
-          - protocol: tcp
-        - service_group:
-          - sg1:
-            - member_list:
-              - mem1:
-                - host: 10.7.11.1
-                - port: 80
-              - mem2:
-                - host: 10.7.11.2
-                - port: 22
-            - lb_type: round_robin
+      - virtual_server:
+        - vs2:
+          - ip_address: 192.168.43.6
+          - netmask: /24
+          - port_list:
+            - 22:
+              - protocol: tcp
+            - 80:
+              - protocol: tcp
+            - service_group:
+              - sg1:
+                - member_list:
+                  - mem1:
+                    - host: 10.7.11.1
+                    - port: 80
+                  - mem2:
+                    - host: 10.7.11.2
+                    - port: 22
+                - lb_type: round_robin
 
 To preform deletions specify `absent`:
 
 .. code-block:: yaml
   sg_member_delete_example:
     a10.slb:
-      - a10_obj: service_group
-      - a10_name: sg1
-      - lb_type: round_robin
-      - member_list:
-        - mem1:
-          - host: 10.7.11.1
-          - port: 80
-          - absent: True
-        - mem2:
-          - host: 10.7.11.2
-          - port: 22
-          - absent: True
+      - service_group:
+        - sg1:
+        - lb_type: round_robin
+        - member_list:
+          - mem1:
+            - host: 10.7.11.1
+            - port: 80
+            - absent: True
+          - mem2:
+            - host: 10.7.11.2
+            - port: 22
+            - absent: True
 '''
 
 
