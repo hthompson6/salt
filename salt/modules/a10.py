@@ -95,14 +95,18 @@ def _apply_config(op_type, **kwargs)
 >>>>>>> fa3f9b7... Added salt module functions per api endpoint. Fixed syntax errors
 =======
 def _apply_config(op_type, **kwargs):
+<<<<<<< HEAD
 >>>>>>> e125d93... Fixed syntax error
     a10_obj = kwargs['a10_obj']
     del kwargs['a10_obj']
 >>>>>>> 631a9e5... Added first endpoint
+=======
+>>>>>>> 1e853d3... Refactored to allow for additional object calls in one statefile
     client = _get_client()
 
     post_result = {}
     try:
+<<<<<<< HEAD
 <<<<<<< HEAD
         payload = _build_json(obj_type, avail_props, **kwargs)
 <<<<<<< HEAD
@@ -127,6 +131,15 @@ def _apply_config(op_type, **kwargs):
        post_result['result'] = True 
 >>>>>>> 631a9e5... Added first endpoint
 =======
+=======
+       sub_result = {}
+       for k, v in kwargs.items():
+           object_params = v[0].popitem(last=False)
+           object_config = object_params[1]
+           object_config.append({'a10_name': object_params[0]})
+           sub_result[k] = a10_salt.parse_obj(k, op_type, client, *object_config)
+       post_result['post_resp'] = sub_result
+>>>>>>> 1e853d3... Refactored to allow for additional object calls in one statefile
        post_result['result'] = True
 >>>>>>> fa3f9b7... Added salt module functions per api endpoint. Fixed syntax errors
     except a10_ex.ACOSException as ex:
