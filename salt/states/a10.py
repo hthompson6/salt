@@ -6,7 +6,9 @@ A10 State Module
 :maturity:   new
 :depends:    a10_saltstack 
 
-State module designed for interaction with the configuration api's of the A10 AXAPI.
+
+The A10 module has been designed for interaction with the configuration api's
+which reside within the A10 AXAPI.
 
 For further API documentation please see: http://techpubs.corp.a10networks.com/
 
@@ -39,7 +41,7 @@ Below is an example state to create a slb setup:
 To preform deletions specify `absent`:
 
 .. code-block:: yaml
-  slb_delete_example:
+  sg_member_delete_example:
     a10.slb:
       - a10_obj: service_group
       - a10_name: sg1
@@ -54,9 +56,6 @@ To preform deletions specify `absent`:
           - port: 22
           - absent: True
 '''
-
-import logging
-LOG = logging.getLogger(__file__)
 
 
 def _ret_ops(name, post_result):
