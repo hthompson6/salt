@@ -46,13 +46,17 @@ def _get_client():
 
 
 def _apply_config(op_type, **kwargs):
-    a10_obj = kwargs['a10_obj']
-    del kwargs['a10_obj']
     client = _get_client()
 
     post_result = {}
     try:
-       post_result['post_resp'] = a10_salt.parse_obj(a10_obj, op_type, client, **kwargs)
+       sub_result = {}
+       for k, v in kwargs.items():
+           object_params = v[0].popitem(last=False)
+           object_config = object_params[1]
+           object_config.append({'a10_name': object_params[0]})
+           sub_result[k] = a10_salt.parse_obj(k, op_type, client, *object_config)
+       post_result['post_resp'] = sub_result
        post_result['result'] = True
     except a10_ex.ACOSException as ex:
        post_result['result'] = False
