@@ -46,14 +46,23 @@ def _get_client():
 
 
 def _apply_config(op_type, **kwargs):
+    '''
+    Pass configuration onto A10 library for processing and execution
+    of CRUD calls.
+    '''
     client = _get_client()
 
     post_result = {}
     try:
        sub_result = {}
+
        for k, v in kwargs.items():
+           # Fetch the name of the object (pos 0) and the
+           # values of the object (pos 1)
            object_params = v[0].popitem(last=False)
            object_config = object_params[1]
+
+           # Reassign the identifier as a value of the object for later usage
            object_config.append({'a10_name': object_params[0]})
            sub_result[k] = a10_salt.parse_obj(k, op_type, client, *object_config)
        post_result['post_resp'] = sub_result
