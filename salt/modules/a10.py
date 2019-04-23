@@ -64,7 +64,7 @@ def _apply_config(config_api, **kwargs):
 
            # Reassign the identifier as a value of the object for later usage
            object_config.append({'a10_name': object_params[0]})
-           resp = a10_salt.parse_obj(k, config_api, client, *object_config)
+           resp = a10_salt.parse_config(k, config_api, client, *object_config)
            if resp:
                sub_result[k] = resp 
        post_result['post_resp'] = sub_result
