@@ -103,14 +103,6 @@ def accounting(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
-def active_partition(**kwargs):
-    '''
-    Switch current partition.
-    '''
-    config_api = 'active_partition'
-    return _apply_config(config_api, **kwargs)
-
-
 def admin(**kwargs):
     '''
     Configure admin user account details for management access
@@ -250,6 +242,14 @@ def dnssec(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
+def domain_list(**kwargs):
+    '''
+    Configure domain classification list.
+    '''
+    config_api = 'domain_list'
+    return _apply_config(config_api, **kwargs)
+
+
 def enable_core(**kwargs):
     '''
     Enable system coredump switch.
@@ -283,11 +283,11 @@ def event(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
-def export_periodic(**kwargs):
+def export_notification(**kwargs):
     '''
-    Put files to a remote site periodically.
+    Event notification type.
     '''
-    config_api = 'export_periodic'
+    config_api = 'export_notification'
     return _apply_config(config_api, **kwargs)
 
 
@@ -336,6 +336,14 @@ def gslb(**kwargs):
     Configure global server load balance settings. 
     '''
     config_api = 'gslb'
+    return _apply_config(config_api, **kwargs)
+
+
+def harmony_controller(**kwargs):
+    '''
+    Harmony controller information.
+    '''
+    config_api = 'harmony_controller'
     return _apply_config(config_api, **kwargs)
 
 
@@ -432,6 +440,14 @@ def key(**kwargs):
     Configure a key chain for use by RIP or IS-IS MD5 authentication.
     '''
     config_api = 'key'
+    return _apply_config(config_api, **kwargs)
+
+
+def lads_controller(**kwargs):
+    '''
+    LADS controller information.
+    '''
+    config_api = 'lads_controller'
     return _apply_config(config_api, **kwargs)
 
 
@@ -674,6 +690,14 @@ def scaleout(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
+def scaleout_cgn(**kwargs):
+    '''
+    Enable scaleout for CGN.
+    '''
+    config_api = 'scaleout_cgn'
+    return _apply_config(config_api, **kwargs)
+
+
 def session_filter(**kwargs):
     '''
     Configure a convenience filter used to display/clear sessions.
@@ -688,6 +712,14 @@ def sflow(**kwargs):
     interfaces and send the data to an external sFlow collector.
     '''
     config_api = 'sflow'
+    return _apply_config(config_api, **kwargs)
+
+
+def single_board_mode(**kwargs):
+    '''
+    Chassis single board mode config.
+    '''
+    config_api = 'single_board_mode'
     return _apply_config(config_api, **kwargs)
 
 
@@ -724,6 +756,15 @@ def so_counters(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
+def ssh_login_grace_time(name, **kwargs):
+    '''
+    The grace time during which a connection can exist without
+    successful authentication.
+    '''
+    config_api = 'ssh_login_grace_time'
+    return _apply_config(config_api, **kwargs)
+
+
 def syn_cookie(**kwargs):
     '''
     Configure hardware-based SYN cookies, which protect against TCP SYN flood attacks. 
@@ -732,11 +773,27 @@ def syn_cookie(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
+def sys_ut(name, **kwargs):
+    '''
+    Systemt unit test
+    '''
+    config_api = 'sys_ut'
+    return _apply_config(config_api, **kwargs)
+
+
 def system(**kwargs):
     '''
     Configure system parameters.
     '''
     config_api = 'system'
+    return _apply_config(config_api, **kwargs)
+
+
+def system_2x40g_mode(name, **kwargs):
+    '''
+    Enable/Disable split of 40G port into 2x40g ports.
+    '''
+    config_api = 'system_2x40g_mode'
     return _apply_config(config_api, **kwargs)
 
 
@@ -804,14 +861,6 @@ def tftp(**kwargs):
     return _apply_config(config_api, **kwargs)
 
 
-def timezone(**kwargs):
-    '''
-    Configure the Time Zone.
-    '''
-    config_api = 'timezone'
-    return _apply_config(config_api, **kwargs)
-
-
 def vcs(**kwargs):
     '''
     Configure virtual chassis system.
@@ -873,4 +922,404 @@ def zone(**kwargs):
     Configure security zone.
     '''
     config_api = 'zone'
+    return _apply_config(config_api, **kwargs)
+
+
+def active_partition(**kwargs):
+    '''
+    Change active partition.
+    '''
+    config_api = 'active_partition'
+    return _apply_config(config_api, **kwargs)
+
+
+def admin_detail(**kwargs):
+    '''
+    Get admin user priviledge.
+    '''
+    config_api = 'admin_detail'
+    return _apply_config(config_api, **kwargs)
+
+
+def admin_session(**kwargs):
+    '''
+    Admin session management.
+    '''
+    config_api = 'admin_session'
+    return _apply_config(config_api, **kwargs)
+
+
+def axdebug(**kwargs):
+    '''
+    Packet trace options.
+    '''
+    config_api = 'axdebug'
+    return _apply_config(config_api, **kwargs)
+
+
+def backup(**kwargs):
+    '''
+    Backup system files.
+    '''
+    config_api = 'backup'
+    return _apply_config(config_api, **kwargs)
+
+
+def boot_block_fix(**kwargs):
+    '''
+    Packet trace options.
+    '''
+    config_api = 'boot_block_fix'
+    return _apply_config(config_api, **kwargs)
+
+
+def bootimage(**kwargs):
+    '''
+    Set next boot image.
+    '''
+    config_api = 'bootimage'
+    return _apply_config(config_api, **kwargs)
+
+
+def chassis_info(**kwargs):
+    '''
+    Info regarding the chassis state.
+    '''
+    config_api = 'chassis_info'
+    return _apply_config(config_api, **kwargs)
+
+
+def chassis_infra(**kwargs):
+    '''
+    Chassis infrastructure commands.
+    '''
+    config_api = 'chassis_infra'
+    return _apply_config(config_api, **kwargs)
+
+
+def clock(**kwargs):
+    '''
+    Configure time-of-day clock.
+    '''
+    config_api = 'clock'
+    return _apply_config(config_api, **kwargs)
+
+
+def cmcov(**kwargs):
+    '''
+    CM code coverage.
+    '''
+    config_api = 'cmcov'
+    return _apply_config(config_api, **kwargs)
+
+
+def config_sync_status(**kwargs):
+    '''
+    Display config sync status for all partitions.
+    '''
+    config_api = 'config_sync_status'
+    return _apply_config(config_api, **kwargs)
+
+
+def configure(**kwargs):
+    '''
+    Configure sync commands.
+    '''
+    config_api = 'configure'
+    return _apply_config(config_api, **kwargs)
+
+
+def copy(**kwargs):
+    '''
+    Copy configure to/from remote server.
+    '''
+    config_api = 'copy'
+    return _apply_config(config_api, **kwargs)
+
+
+def debug(**kwargs):
+    '''
+    Debugging functions.
+    '''
+    config_api = 'debug'
+    return _apply_config(config_api, **kwargs)
+
+
+def device_context(**kwargs):
+    '''
+    Switch context to a particular device for VCS config. 
+    '''
+    config_api = 'device_context'
+    return _apply_config(config_api, **kwargs)
+
+
+def enable_password(**kwargs):
+    '''
+    Modify enable password parameters.
+    '''
+    config_api = 'enable_password'
+    return _apply_config(config_api, **kwargs)
+
+
+def erase(**kwargs):
+    '''
+    Erase configuration.
+    '''
+    config_api = 'erase'
+    return _apply_config(config_api, **kwargs)
+
+
+def export(**kwargs):
+    '''
+    Put files to remote site.
+    '''
+    config_api = 'export'
+    return _apply_config(config_api, **kwargs)
+
+
+def file(**kwargs):
+    '''
+    Local file mangement.
+    '''
+    config_api = 'file'
+    return _apply_config(config_api, **kwargs)
+
+
+def import_files(**kwargs):
+    '''
+    Get files from remote site.
+    '''
+    config_api = 'import'
+    return _apply_config(config_api, **kwargs)
+
+
+def link(**kwargs):
+    '''
+    Link to configuration profile.
+    '''
+    config_api = 'link'
+    return _apply_config(config_api, **kwargs)
+
+
+def multi_ctrl_cpu(**kwargs):
+    '''
+    Enable multiple control CPUs. 
+    '''
+    config_api = 'multi_ctrl_cpu'
+    return _apply_config(config_api, **kwargs)
+
+
+def ntp_status(**kwargs):
+    '''    
+    Get the status of NTP servers.
+    '''
+    config_api = 'ntp_status'
+    return _apply_config(config_api, **kwargs)
+
+
+def partition_all(**kwargs):
+    '''
+    Link to configuration profile.
+    '''
+    config_api = 'partition_all'
+    return _apply_config(config_api, **kwargs)
+
+
+def partition_available_id(**kwargs):
+    '''
+    Display the available id can be used to create partition.
+    '''
+    config_api = 'partition_available_id'
+    return _apply_config(config_api, **kwargs)
+
+
+def pki(**kwargs):
+    '''
+    PKI commands.
+    '''
+    config_api = 'pki'
+    return _apply_config(config_api, **kwargs)
+
+
+def poap(**kwargs):
+    '''
+    Set POAP; when next boot, if startup-config is empty, system will enter POAP Mode.
+    '''
+    config_api = 'poap'
+    return _apply_config(config_api, **kwargs)
+
+
+def reboot(**kwargs):
+    '''
+    Reboot the system.
+    '''
+    config_api = 'reboot'
+    return _apply_config(config_api, **kwargs)
+
+
+def reload(**kwargs):
+    '''
+    Reload the system without rebooting.
+    '''
+    config_api = 'reboot'
+    return _apply_config(config_api, **kwargs)
+
+
+def rename(**kwargs):
+    '''
+    Rename object name.
+    '''
+    config_api = 'rename'
+    return _apply_config(config_api, **kwargs)
+
+
+def restore(**kwargs):
+    '''
+    Restore system files.
+    '''
+    config_api = 'restore'
+    return _apply_config(config_api, **kwargs)
+
+
+def rrd(**kwargs):
+    '''
+    RRD statistics.
+    '''
+    config_api = 'rrd'
+    return _apply_config(config_api, **kwargs)
+
+
+def scm(**kwargs):
+    '''
+    Configure SCM parameters.
+    '''
+    config_api = 'scm'
+    return _apply_config(config_api, **kwargs)
+
+
+def sessions(**kwargs):
+    '''
+    Set session.
+    '''
+    config_api = 'session'
+    return _apply_config(config_api, **kwargs)
+
+
+def set_product_id(**kwargs):
+    '''
+    Set session.
+    '''
+    config_api = 'set_product_id'
+    return _apply_config(config_api, **kwargs)
+
+
+def shutdown(**kwargs):
+    '''
+    Shutdown the system.
+    '''
+    config_api = 'shutdown'
+    return _apply_config(config_api, **kwargs)
+
+
+def slot_context(**kwargs):
+    '''
+    Switch context to a particular slot.
+    '''
+    config_api = 'slot_context'
+    return _apply_config(config_api, **kwargs)
+
+
+def sshd(**kwargs):
+    '''
+    SSHD service operation.
+    '''
+    config_api = 'sshd'
+    return _apply_config(config_api, **kwargs)
+
+
+def sys_audit_log(**kwargs):
+    '''
+    System audit log info.
+    '''
+    config_api = 'sys_audit_log'
+    return _apply_config(config_api, **kwargs)
+
+
+def syslog(**kwargs):
+    '''
+    System log info.
+    '''
+    config_api = 'syslog'
+    return _apply_config(config_api, **kwargs)
+
+
+def system_big_buff_pool(**kwargs):
+    '''
+    System big buff pool config.
+    '''
+    config_api = 'system_big_buff_pool'
+    return _apply_config(config_api, **kwargs)
+
+
+def system_cpu(**kwargs):
+    '''
+    System CPU usage.
+    '''
+    config_api = 'system_cpu'
+    return _apply_config(config_api, **kwargs)
+
+
+def system_poll_mode(**kwargs):
+    '''
+    Enable system polling mode.
+    '''
+    config_api = 'system_poll_mode'
+    return _apply_config(config_api, **kwargs)
+
+
+def system_reset(**kwargs):
+    '''
+    Reset system to the default configuration.
+    '''
+    config_api = 'system_reset'
+    return _apply_config(config_api, **kwargs)
+
+
+def timezone(**kwargs):
+    '''
+    Configure the time zone.
+    '''
+    config_api = 'timezone'
+    return _apply_config(config_api, **kwargs)
+
+
+def upgrade(**kwargs):
+    '''
+    Upgrade system.
+    '''
+    config_api = 'upgrade'
+    return _apply_config(config_api, **kwargs)
+
+
+def vcs_chassis(**kwargs):
+    '''
+    Virtual chassis system.
+    '''
+    config_api = 'vcs_chassis'
+    return _apply_config(config_api, **kwargs)
+
+
+def version(**kwargs):
+    '''
+    Version information.
+    '''
+    config_api = 'version'
+    return _apply_config(config_api, **kwargs)
+
+
+def write(**kwargs):
+    '''
+    Write memory.
+    '''
+    config_api = 'write'
     return _apply_config(config_api, **kwargs)
